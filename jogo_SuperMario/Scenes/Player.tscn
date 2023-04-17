@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Sons/smw_lemmy_wendy_incorrect.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/marioAnimacoes/mario.walk2.tres" type="Texture" id=2]
+[ext_resource path="res://Sons/smw_jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sons/smb_mariodie.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/marioAnimacoes/mario.walk1.tres" type="Texture" id=5]
+[ext_resource path="res://Assets/marioAnimacoes/mario.idle.tres" type="Texture" id=6]
+[ext_resource path="res://Assets/marioAnimacoes/mario.jump1.tres" type="Texture" id=7]
+[ext_resource path="res://Assets/marioAnimacoes/mario.jump2.tres" type="Texture" id=8]
+[ext_resource path="res://Assets/marioAnimacoes/mario.GameOver.tres" type="Texture" id=9]
+[ext_resource path="res://Script/Player.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "gamerOver",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "jump",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 3.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 14.0
+height = 12.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 15, 16 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 30
+script = ExtResource( 11 )
+
+[node name="AnimacaoPlayer" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="ColisaoPlayer" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="DamagePlayer" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
+self_modulate = Color( 0.976471, 0.0156863, 0.0156863, 1 )
+position = Vector2( 0, -3 )
+shape = SubResource( 3 )
+
+[node name="AudioJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 10.0
+
+[node name="AudioDano" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = 10.0
+
+[node name="AudioGameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="body_entered" from="DamagePlayer" to="." method="_on_DamagePlayer_body_entered"]

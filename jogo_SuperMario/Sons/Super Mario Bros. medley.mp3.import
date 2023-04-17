@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Super Mario Bros. medley.mp3-ee7e95ddc2ba921b0d0d97912509319c.mp3str"
+
+[deps]
+
+source_file="res://Sons/Super Mario Bros. medley.mp3"
+dest_files=[ "res://.import/Super Mario Bros. medley.mp3-ee7e95ddc2ba921b0d0d97912509319c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

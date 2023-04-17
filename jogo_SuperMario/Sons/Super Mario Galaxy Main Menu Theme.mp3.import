@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Super Mario Galaxy Main Menu Theme.mp3-e4b03c202a20293671fdf6abeca380c6.mp3str"
+
+[deps]
+
+source_file="res://Sons/Super Mario Galaxy Main Menu Theme.mp3"
+dest_files=[ "res://.import/Super Mario Galaxy Main Menu Theme.mp3-e4b03c202a20293671fdf6abeca380c6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/smb_coin.wav-9b295648686f37582e607f3cb474b3b3.sample"
+
+[deps]
+
+source_file="res://Sons/smb_coin.wav"
+dest_files=[ "res://.import/smb_coin.wav-9b295648686f37582e607f3cb474b3b3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
